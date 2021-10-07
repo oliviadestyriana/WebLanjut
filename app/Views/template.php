@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="/assets/AdminLTE/plugins/summernote/summernote-bs4.min.css">
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+
 
 <?= $this->renderSection('content'); ?>
 

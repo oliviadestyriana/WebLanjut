@@ -42,7 +42,8 @@ $routes->get('/', function () {
     echo view ('layouts/footer');
 });
 $routes->get('/admin','templating::index');
-
+$routes->get('/register', 'Templating::register');
+$routes->post('/saveRegister', 'Templating::saveRegister');
 $routes->get('/posts', 'PostController::index');
 
 $routes->get('/about', function (){
