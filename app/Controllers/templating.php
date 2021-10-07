@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers; 
 
 use App\Controllers\BaseControllers;
 use App\Models\UserModel;
@@ -19,7 +19,7 @@ class Templating extends BaseController
         //echo view('layouts/header', $data);
         //echo view('layouts/navbar');
 		//echo view('v_post');
-        //echo view('layouts/footer');
+        
         return view('view_admin');
 	}
 
