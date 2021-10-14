@@ -80,7 +80,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">My Posts</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -91,7 +91,54 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
+
     <!-- /.content-header -->
+
+    <!-- /Main Content -->
+    <div class="container">
+
+        <div class="card">
+            <div class="card-header">
+                Form Tambah Posts
+            </div>
+            <div class="card-body">
+                <form action="/admin/posts/store" method="POST">
+                    <div class="row">
+                        <div class="col-md-4">                      
+                            <div class="form-group">
+                                <label for="judul">Judul Postingan</label>
+                                <input type="text"  class="form-control" id="judul" name="judul">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="slug">Slug Postingan</label>
+                                <input type="text"  class="form-control" id="slug" name="slug">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="kategori">Kategori Postingan</label>
+                                <input type="text"  class="form-control" id="kategori" name="kategori">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="author">Authot</label>
+                                <input type="text"  class="form-control" id="author" name="author">
+                            </div>
+                        </div>
+                                                    
+                        <div class="col-md-8">
+                                <label for="deskripsi">Deskripsi Postingan</label>
+                                <br>
+                                <textarea name="deskripsi" id="deskripsi"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.Main Content -->
 
     
           <!-- right col -->
@@ -102,6 +149,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  
   <footer class="main-footer">
     <div class="text-center">
       <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
@@ -119,3 +167,9 @@
 <!-- ./wrapper -->
 
 <?= $this->endsection(); ?>
+
+<?php $this->section('myscript'); ?>
+    <script>
+        $('#deskripsi').summernote()
+    </script>
+<?= $this->endSection(); ?>
