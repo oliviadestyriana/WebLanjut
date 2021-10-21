@@ -107,12 +107,22 @@
                         <div class="col-md-4">                      
                             <div class="form-group">
                                 <label for="judul">Judul Postingan</label>
-                                <input type="text"  class="form-control" id="judul" name="judul">
+                                <input type="text"  class="form-control <?= ($validation->hasError('judul')) ? 'is-invalid' : ''; ?>" id="judul" name="judul" value="<?= old('judul') ;?>">
+                                <?php if ($validation->hasError('judul')) : ?>
+                                  <div class="invalid-feedback">
+                                    <?= $validation->getError("judul") ; ?>
+                                  </div>
+                                <?php endif; ?>
                             </div>
 
                             <div class="form-group">
                                 <label for="slug">Slug Postingan</label>
-                                <input type="text"  class="form-control" id="slug" name="slug">
+                                <input type="text"  class="form-control <?= ($validation->hasError('slug')) ? 'is-invalid' : ''; ?>" id="slug" name="slug" value="<?= old('slug') ;?> ">
+                                <?php if ($validation->hasError('slug')) : ?>
+                                  <div class="invalid-feedback">
+                                    <?= $validation->getError("slug") ; ?>
+                                  </div>
+                                <?php endif; ?>
                             </div>
 
                             <div class="form-group">
@@ -121,7 +131,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="author">Authot</label>
+                                <label for="author">Author</label>
                                 <input type="text"  class="form-control" id="author" name="author">
                             </div>
                         </div>
