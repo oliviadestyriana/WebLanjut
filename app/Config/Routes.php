@@ -34,37 +34,36 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', function(){
 	$data = [
-		'title' => "Blog - Home"
+		'title' => "Blog - Home",
 	];
-	echo view('layouts/header', $data) ;
-	echo view('layouts/navbar') ;
-	echo view('v_home') ;
-	echo view('layouts/footer') ;
+
+	echo view('layouts/header', $data);
+	echo view('layouts/navbar');
+	echo view('v_home');
+	echo view('layouts/footer');
 });
-
-
-
 $routes->get('/register', 'Templating::register');
-
 $routes->post('/saveRegister', 'Templating::saveRegister');
-
-$routes->get('/posts', 'PostController::index') ;
+$routes->get('/biodata/(:alpha)/(:num)', 'Home::fungsiBaru/$1/$2');
+$routes->get('/posts', 'PostController::index');
 
 $routes->get('/about', function(){
 	$data = [
-		'title' => "Blog - About"
+		'title' => "Blog - About",
 	];
-	echo view('layouts/header', $data) ;
-	echo view('layouts/navbar') ;
-	echo view('v_about') ;
-	echo view('layouts/footer') ;
+	echo view('layouts/header', $data);
+	echo view('layouts/navbar');
+	return view ('v_about');
+	echo view('layouts/footer');
 });
 
 $routes->get('/admin', 'Templating::index');
 $routes->get('/admin/posts', 'AdminPostController::index');
 $routes->get('/admin/posts/create', 'AdminPostController::create');
+$routes->get('/admin/posts/edit/(:segment)', 'AdminPostController::edit/$1');
+$routes->get('/admin/posts/delete/(:segment)', 'AdminPostController::delete/$1');
+$routes->post('/admin/posts/update/(:segment)', 'AdminPostController::update/$1');
 $routes->post('/admin/posts/store', 'AdminPostController::store');
-
 
 /*
  * --------------------------------------------------------------------
